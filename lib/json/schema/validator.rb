@@ -5,7 +5,8 @@ module JSON
   class Schema
     class Validator
       def initialize(schema, data)
-        @schema, @data = schema, data
+        @schema = schema.is_a?(JSON::Schema) ? schema : JSON::Schema.new(schema) 
+        @data = data
       end
 
       def validate
