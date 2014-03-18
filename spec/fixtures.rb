@@ -12,7 +12,7 @@ class Fixtures
 
     def simple_schema
       {
-        'title' => 'simple correct schema',
+        'title' => 'simple object schema',
         'type' => 'object'
       }
     end
