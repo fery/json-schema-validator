@@ -9,7 +9,7 @@ describe JSON::Schema::Validator do
         let(:schema) { schema }
         let(:data) { data }
 
-        it { should validate }
+        it { should &:validate }
       end
     end
   end
@@ -20,7 +20,7 @@ describe JSON::Schema::Validator do
         let(:schema) { schema }
         let(:data) { data }
 
-        it { should_not validate }
+        it { should_not &:validate }
       end
     end
   end
