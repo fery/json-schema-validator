@@ -18,7 +18,7 @@ describe JSON::Schema do
       keywords   = { 'dumb_keyword' => 'dumb' }
       data       = true
       schema     = JSON::Schema.new(keywords)
-      key_double = double('keyword', validate: true)
+      key_double = double('keyword', validate => true)
 
       key_double.should_receive(:validate)
       DumbKeyword.should_receive(:new).and_return(key_double)
