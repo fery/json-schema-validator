@@ -15,4 +15,19 @@ describe JSON::Schema::TypeKeyword do
 
     expect(keyword.validate(data)).to be_falsey
   end
+
+  it 'does validate an array type with an array' do
+    keyword = JSON::Schema::TypeKeyword.new('array')
+    data    = []
+
+    expect(keyword.validate(data)).to be_truthy
+  end
+
+  it 'does validate an array type with an array' do
+    keyword = JSON::Schema::TypeKeyword.new('array')
+    data    = {}
+
+    expect(keyword.validate(data)).to be_falsey
+  end
+
 end

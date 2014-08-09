@@ -1,21 +1,35 @@
 class Fixtures
   class << self
     def valid_schemas_and_data
-      [[simple_schema, correct_data]]
+      [
+        [object_schema, {}],
+        [array_schema,  []]
+      ]
     end
 
     def invalid_schemas_and_data
-      [[simple_schema, incorrect_data]]
+      [
+        [object_schema, []],
+        [array_schema,  {}]
+      ]
     end
 
     private
 
-    def simple_schema
+    def object_schema
       {
         'title' => 'simple object schema',
         'type' => 'object'
       }
     end
+
+    def array_schema
+      {
+        'title' => 'simple array schema',
+        'type' => 'array'
+      }
+    end
+
 
     def correct_data
       {}
