@@ -3,14 +3,16 @@ class Fixtures
     def valid_schemas_and_data
       [
         [object_schema, {}],
-        [array_schema,  []]
+        [array_schema,  []],
+        [integer_schema, 4]
       ]
     end
 
     def invalid_schemas_and_data
       [
-        [object_schema, []],
-        [array_schema,  {}]
+        [object_schema,  []],
+        [array_schema,   {}],
+        [integer_schema, '']
       ]
     end
 
@@ -18,25 +20,23 @@ class Fixtures
 
     def object_schema
       {
-        'title' => 'simple object schema',
+        'title' => 'object schema',
         'type' => 'object'
       }
     end
 
     def array_schema
       {
-        'title' => 'simple array schema',
+        'title' => 'array schema',
         'type' => 'array'
       }
     end
 
-
-    def correct_data
-      {}
-    end
-
-    def incorrect_data
-      []
+    def integer_schema
+      {
+        'title' => 'integer schema',
+        'type' => 'integer'
+      }
     end
   end
 end

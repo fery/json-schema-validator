@@ -2,8 +2,9 @@ module JSON
   class Schema
     class TypeKeyword < Keyword
       TYPE_MAPPER = {
-        'object' => Hash,
-        'array'  => Array
+        'object'  => Hash,
+        'array'   => Array,
+        'integer' => Integer
       }
 
       def validate(data)
