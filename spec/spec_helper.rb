@@ -1,3 +1,5 @@
+require 'rspec/its'
+
 require 'json/schema/validator'
 require 'fixtures'
 
