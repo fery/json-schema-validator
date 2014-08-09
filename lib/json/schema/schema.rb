@@ -17,7 +17,7 @@ module JSON
     end
 
     def extract_keywords
-      @schema.select { |key, value| classify(key) && classify(key).new(value) }
+      @schema.map { |k, v| classify(k).new(v) if classify(k) }.compact
     end
 
     def classify(keyword)
@@ -25,10 +25,20 @@ module JSON
       Object.const_defined?(class_name) ? Module.const_get(class_name) : false
     end
 
-    attr_accessor :schema
+    attr_reader :schema
   end
 
-  class Type
+  class SchemaKeyword
+    def initialize(name)
+      @name = name
+    end
 
+    def validate(data)
+      raise NotImplementedError.new('You must implement validate.')
+    end
+
+    private
+
+    attr_reader :name
   end
 end

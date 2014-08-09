@@ -33,7 +33,7 @@ describe JSON::Schema::Validator do
     its(:validate) { should be_true }
   end
 
-  describe ".validate" do
+  describe '.validate' do
     subject { JSON::Schema::Validator.validate(schema, data) }
 
     context 'when the schema validates the data' do

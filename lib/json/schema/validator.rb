@@ -1,5 +1,5 @@
-require "json/schema/validator/version"
-require "json/schema/schema"
+require 'json/schema/validator/version'
+require 'json/schema/schema'
 
 module JSON
   class Schema
@@ -22,7 +22,7 @@ module JSON
 
       private
 
-      attr_accessor :schema, :data
+      attr_reader :schema, :data
     end
   end
 end
