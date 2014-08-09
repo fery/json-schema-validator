@@ -1,6 +1,7 @@
-require 'json/schema/validator/version'
-require 'json/schema/schema'
-require 'json/schema/keyword'
+require 'require_all'
+
+require_all "lib/json/schema"
+require_all "lib/json/schema/**/*.rb"
 
 module JSON
   class Schema

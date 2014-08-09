@@ -1,8 +1,8 @@
 module JSON
   class Schema
     class Keyword
-      def initialize(name)
-        @name = name
+      def initialize(value)
+        @value = value
       end
 
       def validate(data)
@@ -11,7 +11,7 @@ module JSON
 
       private
 
-      attr_reader :name
+      attr_reader :value
     end
   end
 end
