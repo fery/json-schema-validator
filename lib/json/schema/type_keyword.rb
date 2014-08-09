@@ -6,7 +6,8 @@ module JSON
         'array'   => Array,
         'integer' => Integer,
         'number'  => Numeric,
-        'string'  => String
+        'string'  => String,
+        'null'    => NilClass
       }
 
       def validate(data)

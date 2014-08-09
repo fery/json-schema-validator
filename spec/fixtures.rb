@@ -6,7 +6,8 @@ class Fixtures
         [array_schema,  []  ],
         [integer_schema, 4  ],
         [number_schema,  4.5],
-        [string_schema,  'a']
+        [string_schema,  'a'],
+        [null_schema,    nil]
       ]
     end
 
@@ -16,7 +17,8 @@ class Fixtures
         [array_schema,   {} ],
         [integer_schema, '' ],
         [number_schema,  '4'],
-        [string_schema,  5  ]         
+        [string_schema,  5  ],
+        [null_schema,  'a']
       ]
     end
 
@@ -56,5 +58,12 @@ class Fixtures
         'type' => 'string'
       }
     end
+    
+    def null_schema
+      {
+        'title' => 'null schema',
+        'type' => 'null'
+      }
+    end    
   end
 end

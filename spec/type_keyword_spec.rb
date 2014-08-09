@@ -84,4 +84,18 @@ describe JSON::Schema::TypeKeyword do
 
     expect(keyword.validate(data)).to be_falsey
   end
+  
+  it 'does validate a null type with a float' do
+    keyword = JSON::Schema::TypeKeyword.new('null')
+    data    = nil
+
+    expect(keyword.validate(data)).to be_truthy
+  end
+
+  it 'does not validate a null type with anything but an null' do
+    keyword = JSON::Schema::TypeKeyword.new('null')
+    data    = 4.3
+
+    expect(keyword.validate(data)).to be_falsey
+  end  
 end
