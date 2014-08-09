@@ -1,5 +1,6 @@
 require 'json/schema/validator/version'
 require 'json/schema/schema'
+require 'json/schema/keyword'
 
 module JSON
   class Schema

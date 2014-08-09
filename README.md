@@ -1,5 +1,6 @@
 # Json::Schema::Validator
-
+### Status
+[![Build Status](https://travis-ci.org/fery/json-schema-validator.png)](https://travis-ci.org/fery/json-schema-validator)
 
 ## Installation
 

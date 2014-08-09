@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe JSON::Schema do
-  class DumbKeyword < JSON::SchemaKeyword
+  class DumbKeyword < JSON::Schema::Keyword
     def validate(data)
       data
     end
   end
 
-  class ReverseKeyword < JSON::SchemaKeyword
+  class ReverseKeyword < JSON::Schema::Keyword
     def validate(data)
       !!!data
     end
