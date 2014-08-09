@@ -5,7 +5,8 @@ module JSON
         'object'  => Hash,
         'array'   => Array,
         'integer' => Integer,
-        'number'  => Numeric
+        'number'  => Numeric,
+        'string'  => String
       }
 
       def validate(data)

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe JSON::Schema::TypeKeyword do 
-
   it 'does validate an object type with a hash' do
     keyword = JSON::Schema::TypeKeyword.new('object')
     data    = {}
@@ -51,23 +50,37 @@ describe JSON::Schema::TypeKeyword do
     expect(keyword.validate(data)).to be_falsey
   end
 
-  it 'does validate an number type with an number' do
+  it 'does validate a number type with an number' do
     keyword = JSON::Schema::TypeKeyword.new('number')
     data    = 4
 
     expect(keyword.validate(data)).to be_truthy
   end
 
-  it 'does validate an number type with a float' do
+  it 'does validate a number type with a float' do
     keyword = JSON::Schema::TypeKeyword.new('number')
     data    = 4.3
 
     expect(keyword.validate(data)).to be_truthy
   end
 
-  it 'does not validate an number type with anything but an number' do
+  it 'does not validate a number type with anything but an number' do
     keyword = JSON::Schema::TypeKeyword.new('number')
     data    = ''
+
+    expect(keyword.validate(data)).to be_falsey
+  end
+
+  it 'does validate a string type with a float' do
+    keyword = JSON::Schema::TypeKeyword.new('string')
+    data    = '4.3'
+
+    expect(keyword.validate(data)).to be_truthy
+  end
+
+  it 'does not validate a string type with anything but an string' do
+    keyword = JSON::Schema::TypeKeyword.new('string')
+    data    = 4.3
 
     expect(keyword.validate(data)).to be_falsey
   end
