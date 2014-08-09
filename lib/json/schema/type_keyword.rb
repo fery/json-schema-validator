@@ -4,7 +4,8 @@ module JSON
       TYPE_MAPPER = {
         'object'  => Hash,
         'array'   => Array,
-        'integer' => Integer
+        'integer' => Integer,
+        'number'  => Numeric
       }
 
       def validate(data)

@@ -51,4 +51,24 @@ describe JSON::Schema::TypeKeyword do
     expect(keyword.validate(data)).to be_falsey
   end
 
+  it 'does validate an number type with an number' do
+    keyword = JSON::Schema::TypeKeyword.new('number')
+    data    = 4
+
+    expect(keyword.validate(data)).to be_truthy
+  end
+
+  it 'does validate an number type with a float' do
+    keyword = JSON::Schema::TypeKeyword.new('number')
+    data    = 4.3
+
+    expect(keyword.validate(data)).to be_truthy
+  end
+
+  it 'does not validate an number type with anything but an number' do
+    keyword = JSON::Schema::TypeKeyword.new('number')
+    data    = ''
+
+    expect(keyword.validate(data)).to be_falsey
+  end
 end

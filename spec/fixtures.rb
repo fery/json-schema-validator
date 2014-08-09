@@ -4,7 +4,8 @@ class Fixtures
       [
         [object_schema, {}],
         [array_schema,  []],
-        [integer_schema, 4]
+        [integer_schema, 4],
+        [number_schema,  4.5]
       ]
     end
 
@@ -12,7 +13,8 @@ class Fixtures
       [
         [object_schema,  []],
         [array_schema,   {}],
-        [integer_schema, '']
+        [integer_schema, ''],
+        [number_schema,  '4']        
       ]
     end
 
@@ -38,5 +40,13 @@ class Fixtures
         'type' => 'integer'
       }
     end
+
+    def number_schema
+      {
+        'title' => 'number schema',
+        'type' => 'number'
+      }
+    end
+
   end
 end
