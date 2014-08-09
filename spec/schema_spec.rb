@@ -18,10 +18,10 @@ describe JSON::Schema do
       keywords   = { 'dumb_keyword' => 'dumb' }
       data       = true
       schema     = JSON::Schema.new(keywords)
-      key_double = double('keyword', validate => true)
+      key_double = double('keyword', :validate => true)
 
-      key_double.should_receive(:validate)
-      DumbKeyword.should_receive(:new).and_return(key_double)
+      expect(key_double).to  receive(:validate)
+      expect(DumbKeyword).to receive(:new).and_return(key_double)
 
       schema.validate(data)
     end
@@ -31,7 +31,7 @@ describe JSON::Schema do
       valid_data = true
       schema     = JSON::Schema.new(keywords)
 
-      expect( schema.validate(valid_data) ).to be_true
+      expect(schema.validate(valid_data)).to be_truthy
     end
 
     it 'does not validates invalid data' do
@@ -39,7 +39,7 @@ describe JSON::Schema do
       invalid_data = false
       schema       = JSON::Schema.new(keywords)
 
-      expect(schema.validate(invalid_data)).to be_false
+      expect(schema.validate(invalid_data)).to be_falsey
     end
 
     it 'does not validate if any of the keywords does not validate' do
@@ -50,7 +50,7 @@ describe JSON::Schema do
       data   = true
       schema = JSON::Schema.new(keywords)
 
-      expect(schema.validate(data)).to be_false
+      expect(schema.validate(data)).to be_falsey
     end
   end
 end
