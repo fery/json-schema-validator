@@ -7,7 +7,8 @@ class Fixtures
         [integer_schema, 4  ],
         [number_schema,  4.5],
         [string_schema,  'a'],
-        [null_schema,    nil]
+        [null_schema,    nil],
+        [boolean_schema, true]
       ]
     end
 
@@ -18,7 +19,8 @@ class Fixtures
         [integer_schema, '' ],
         [number_schema,  '4'],
         [string_schema,  5  ],
-        [null_schema,  'a']
+        [null_schema,    'a'],
+        [boolean_schema, nil]
       ]
     end
 
@@ -63,6 +65,13 @@ class Fixtures
       {
         'title' => 'null schema',
         'type' => 'null'
+      }
+    end
+
+    def boolean_schema
+      {
+        'title' => 'boolean schema',
+        'type' => 'boolean'
       }
     end    
   end

@@ -97,5 +97,26 @@ describe JSON::Schema::TypeKeyword do
     data    = 4.3
 
     expect(keyword.validate(data)).to be_falsey
+  end
+
+  it 'does validate a boolean type with true' do
+    keyword = JSON::Schema::TypeKeyword.new('boolean')
+    data    = true
+
+    expect(keyword.validate(data)).to be_truthy
+  end
+
+  it 'does validate a boolean type with false' do
+    keyword = JSON::Schema::TypeKeyword.new('boolean')
+    data    = false
+
+    expect(keyword.validate(data)).to be_truthy
+  end  
+
+  it 'does not validate a boolean type with anything but an boolean' do
+    keyword = JSON::Schema::TypeKeyword.new('boolean')
+    data    = 4.3
+
+    expect(keyword.validate(data)).to be_falsey
   end  
 end
