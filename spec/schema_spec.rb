@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe JSON::Schema do
-  class DumbKeyword < JSON::Schema::Keyword
+  class JSON::Schema::DumbKeyword < JSON::Schema::Keyword
     def validate(data)
       data
     end
   end
 
-  class ReverseKeyword < JSON::Schema::Keyword
+  class JSON::Schema::ReverseKeyword < JSON::Schema::Keyword
     def validate(data)
       !!!data
     end
@@ -20,7 +20,7 @@ describe JSON::Schema do
       key_double = double('keyword', :validate => true)
 
       expect(key_double).to  receive(:validate)
-      expect(DumbKeyword).to receive(:new).and_return(key_double)
+      expect(JSON::Schema::DumbKeyword).to receive(:new).and_return(key_double)
 
       schema = JSON::Schema.new(keywords)
       schema.validate(data)
