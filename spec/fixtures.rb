@@ -2,13 +2,13 @@ class Fixtures
   class << self
     def valid_schemas_and_data
       [
-        [object_schema, {}  ],
-        [array_schema,  []  ],
+        [object_schema,  {} ],
+        [array_schema,   [] ],
         [integer_schema, 20 ],
         [number_schema,  4.5],
         [string_schema,  'a'],
         [null_schema,    nil],
-        [boolean_schema, true],
+        [boolean_schema, true]
       ]
     end
 
@@ -24,7 +24,8 @@ class Fixtures
         [integer_schema, 19 ],
         [number_schema,  102],
         [number_schema,  100],
-        [integer_schema, 10 ]
+        [integer_schema, 10 ],
+        [string_schema,  'a1b2c3']
       ]
     end
 
@@ -65,8 +66,9 @@ class Fixtures
 
     def string_schema
       {
-        'title' => 'string schema',
-        'type' => 'string'
+        'title'     => 'string schema',
+        'type'      => 'string',
+        'maxLength' => 5
       }
     end
     
