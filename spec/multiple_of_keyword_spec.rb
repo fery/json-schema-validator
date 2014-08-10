@@ -8,6 +8,13 @@ describe JSON::Schema::MultipleOfKeyword do
       .to raise_error
   end
 
+  it 'raises an exception if the passed value is not higher than 0' do
+    schema  = double('Schema')
+    
+    expect { JSON::Schema::MultipleOfKeyword.new(schema, -2) }
+      .to raise_error
+  end
+
   it 'raises an exception if the passed data is not a number' do
     schema  = double('Schema')
     keyword = JSON::Schema::MultipleOfKeyword.new(schema, 5)
