@@ -26,7 +26,8 @@ class Fixtures
         [number_schema,  100],
         [integer_schema, 10 ],
         [string_schema,  '123456'],
-        [string_schema,  '1']
+        [string_schema,  '1'],
+        [string_schema,  '1a3'],
       ]
     end
 
@@ -70,7 +71,8 @@ class Fixtures
         'title'     => 'string schema',
         'type'      => 'string',
         'maxLength' => 5,
-        'minLength' => 2
+        'minLength' => 2,
+        'pattern'   => '[0-9]{3}'
       }
     end
     
