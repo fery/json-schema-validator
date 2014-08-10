@@ -23,7 +23,8 @@ class Fixtures
         [boolean_schema, nil],
         [integer_schema, 19 ],
         [number_schema,  102],
-        [number_schema,  100]        
+        [number_schema,  100],
+        [integer_schema, 10 ]
       ]
     end
 
@@ -45,9 +46,11 @@ class Fixtures
 
     def integer_schema
       {
-        'title'      => 'integer schema',
-        'type'       => 'integer',
-        'multipleOf' => 5
+        'title'            => 'integer schema',
+        'type'             => 'integer',
+        'multipleOf'       => 5,
+        'minimum'          => 10,
+        'exclusiveMinimum' => true
       }
     end
 
