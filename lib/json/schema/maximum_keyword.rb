@@ -1,6 +1,6 @@
 module JSON
   class Schema
-    class MultipleOfKeyword < Keyword
+    class MaximumKeyword < Keyword
       def initialize(value)
         super
         raise TypeError unless value.kind_of?(Numeric)
@@ -9,7 +9,7 @@ module JSON
       def validate(data)
         raise TypeError unless data.kind_of?(Numeric)
 
-        (data % value).zero?
+        data < value
       end
     end
   end

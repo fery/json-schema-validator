@@ -5,18 +5,25 @@ describe JSON::Schema::MultipleOfKeyword do
     expect { JSON::Schema::MultipleOfKeyword.new('object') }.to raise_error
   end
 
-  it 'does validate a multiple integer' do
+  it 'raises an exception if the passed data is not a number' do
     keyword = JSON::Schema::MultipleOfKeyword.new(5)
     data    = {}
 
-    expect(keyword.validate(10)).to be_truthy
+    expect { keyword.validate(data) }.to raise_error(JSON::Schema::TypeError)
+  end
+
+  it 'does validate a multiple integer' do
+    keyword = JSON::Schema::MultipleOfKeyword.new(5)
+    data    = 10
+
+    expect(keyword.validate(data)).to be_truthy
   end
 
   it 'does validate a multiple float' do
     keyword = JSON::Schema::MultipleOfKeyword.new(0.5)
-    data    = {}
+    data    = 10.0
 
-    expect(keyword.validate(10.0)).to be_truthy
+    expect(keyword.validate(data)).to be_truthy
   end
 
   it 'does not validate an object type with anything but a hash' do
