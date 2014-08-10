@@ -62,5 +62,55 @@ describe JSON::Schema do
 
       expect(schema.validate(data)).to be_falsey
     end
+  
+    describe '#has_maximum?' do
+      it 'returns true if the schema has a maximum keyword' do
+        keywords = { 'maximum' => 10 }
+
+        schema = JSON::Schema.new(keywords)
+
+        expect(schema.has_maximum?).to be_truthy
+      end
+
+      it 'returns false if the schema has not maximum keyword' do
+        keywords = { 'dumb' => 10 }
+
+        schema = JSON::Schema.new(keywords)
+
+        expect(schema.has_maximum?).to be_falsey
+      end
+    end
+
+    describe '#is_maximum_exclusive?' do
+      it 'returns true if the schema has a true exclusive maximum keyword' do
+        keywords = { 
+          'exclusiveMaximum' => true,
+          'maximum'           => 10
+        }
+
+        schema = JSON::Schema.new(keywords)
+
+        expect(schema.is_maximum_excluding?).to be_truthy
+      end
+
+      it 'returns false if the schema does not have exluding maximum keyword' do
+        keywords = { 'maximum' => 10 }
+
+        schema = JSON::Schema.new(keywords)
+
+        expect(schema.is_maximum_excluding?).to be_falsey
+      end
+
+      it 'returns false if the schema does not have exluding maximum keyword' do
+        keywords = { 
+          'exclusiveMaximum'  => false,
+          'maximum'           => 10
+        }
+
+        schema = JSON::Schema.new(keywords)
+
+        expect(schema.is_maximum_excluding?).to be_falsey
+      end
+    end
   end
 end

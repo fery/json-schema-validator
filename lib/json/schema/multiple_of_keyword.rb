@@ -1,7 +1,7 @@
 module JSON
   class Schema
     class MultipleOfKeyword < Keyword
-      def initialize(value)
+      def initialize(schema, value)
         super
         raise TypeError unless value.kind_of?(Numeric)
       end

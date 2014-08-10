@@ -22,7 +22,8 @@ class Fixtures
         [null_schema,    'a'],
         [boolean_schema, nil],
         [integer_schema, 19 ],
-        [number_schema,  102]
+        [number_schema,  102],
+        [number_schema,  100]        
       ]
     end
 
@@ -52,9 +53,10 @@ class Fixtures
 
     def number_schema
       {
-        'title'    => 'number schema',
-        'type'     => 'number',
-        'maximum'  =>  100
+        'title'            => 'number schema',
+        'type'             => 'number',
+        'maximum'          =>  100,
+        'exclusiveMaximum' =>  true
       }
     end
 
