@@ -9,7 +9,7 @@ module JSON
       def validate(data)
         raise TypeError unless data.kind_of?(Numeric)
 
-        data < value
+        data <= value
       end
     end
   end

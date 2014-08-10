@@ -33,10 +33,10 @@ describe JSON::Schema::MaximumKeyword do
     expect(keyword.validate(data)).to be_falsey
   end
 
-  it 'does not validate a number equal to the maximum' do
+  it 'does validate a number equal to the maximum' do
     keyword = JSON::Schema::MaximumKeyword.new(5)
     data    = 5.0
 
-    expect(keyword.validate(data)).to be_falsey
+    expect(keyword.validate(data)).to be_truthy
   end
 end
