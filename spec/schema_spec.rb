@@ -13,6 +13,8 @@ describe JSON::Schema do
     end
   end
 
+  class JSON::Schema::DumbThingKeyword < JSON::Schema::Keyword; end
+
   describe '#validate' do
     it 'uses keyword classes to validate data' do
       keywords   = { 'dumb' => 'dumb' }
@@ -24,6 +26,14 @@ describe JSON::Schema do
 
       schema = JSON::Schema.new(keywords)
       schema.validate(data)
+    end
+
+    it 'uses normalizes keyword name' do
+      keywords   = { 'dumbThing' => 'dumb' }
+
+      expect(JSON::Schema::DumbThingKeyword).to receive(:new)
+
+      schema = JSON::Schema.new(keywords)
     end
 
     it 'validates valid data' do

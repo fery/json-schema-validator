@@ -4,11 +4,11 @@ class Fixtures
       [
         [object_schema, {}  ],
         [array_schema,  []  ],
-        [integer_schema, 4  ],
+        [integer_schema, 20 ],
         [number_schema,  4.5],
         [string_schema,  'a'],
         [null_schema,    nil],
-        [boolean_schema, true]
+        [boolean_schema, true],
       ]
     end
 
@@ -20,7 +20,8 @@ class Fixtures
         [number_schema,  '4'],
         [string_schema,  5  ],
         [null_schema,    'a'],
-        [boolean_schema, nil]
+        [boolean_schema, nil],
+        [integer_schema, 19 ]
       ]
     end
 
@@ -42,8 +43,9 @@ class Fixtures
 
     def integer_schema
       {
-        'title' => 'integer schema',
-        'type' => 'integer'
+        'title'      => 'integer schema',
+        'type'       => 'integer',
+        'multipleOf' => 5
       }
     end
 

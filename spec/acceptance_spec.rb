@@ -16,7 +16,7 @@ describe JSON::Schema::Validator do
   context 'with valid data for the schema' do
     Fixtures.invalid_schemas_and_data.each do |invalid_schema, invalid_data|
       context "with schema {#{invalid_schema['title']}}" do
-        it 'validates valid schema with valid data' do 
+        it "validates valid schema with invalid data {#{invalid_data}}" do 
           schema = JSON::Schema::Validator.new invalid_schema, invalid_data
           
           expect(schema.validate).to be_falsey

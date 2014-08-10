@@ -18,8 +18,8 @@ module JSON
     end
 
     def classify(keyword)
-      keyword += '_keyword'
-      class_name = keyword.split('_').collect!{ |w| w.capitalize }.join
+      class_name = keyword + 'Keyword'
+      class_name[0] = class_name[0].upcase
       self.class.const_get(class_name) if self.class.const_defined?(class_name)
     end
 
