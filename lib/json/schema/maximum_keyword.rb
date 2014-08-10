@@ -9,7 +9,17 @@ module JSON
       def validate(data)
         raise TypeError unless data.kind_of?(Numeric)
 
-        schema.is_maximum_excluding? ? data < value : data <= value
+        is_maximum_excluding? ? data < value : data <= value
+      end
+
+      private
+
+      def is_maximum_excluding?
+        excluding_key = schema.keywords.find do |k| 
+          k.kind_of? ExclusiveMaximumKeyword
+        end
+
+        !!(excluding_key && excluding_key.value)
       end
     end
   end

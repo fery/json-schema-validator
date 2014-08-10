@@ -7,13 +7,19 @@ module JSON
       end
 
       def validate(data)
-        raise ConstrainError unless schema.has_maximum?
+        raise ConstrainError unless schema_has_maximum?
 
         true
       end
 
       def value
         @value
+      end
+
+      private
+
+      def schema_has_maximum?
+        schema.keywords.any? { |k| k.kind_of? MaximumKeyword }
       end
     end
   end
