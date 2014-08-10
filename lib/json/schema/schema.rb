@@ -19,7 +19,7 @@ module JSON
 
     def classify(keyword)
       class_name = keyword + 'Keyword'
-      class_name[0] = class_name[0].upcase
+      class_name.sub!(/./) { $&.upcase }
       self.class.const_get(class_name) if self.class.const_defined?(class_name)
     end
 
