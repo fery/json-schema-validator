@@ -6,7 +6,7 @@ class Fixtures
         [array_schema,   [] ],
         [integer_schema, 20 ],
         [number_schema,  4.5],
-        [string_schema,  'a'],
+        [string_schema,  '123'],
         [null_schema,    nil],
         [boolean_schema, true]
       ]
@@ -25,7 +25,8 @@ class Fixtures
         [number_schema,  102],
         [number_schema,  100],
         [integer_schema, 10 ],
-        [string_schema,  'a1b2c3']
+        [string_schema,  '123456'],
+        [string_schema,  '1']
       ]
     end
 
@@ -68,7 +69,8 @@ class Fixtures
       {
         'title'     => 'string schema',
         'type'      => 'string',
-        'maxLength' => 5
+        'maxLength' => 5,
+        'minLength' => 2
       }
     end
     

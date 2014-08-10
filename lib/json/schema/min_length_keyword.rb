@@ -1,6 +1,6 @@
 module JSON
   class Schema
-    class MaxLengthKeyword < Keyword
+    class MinLengthKeyword < Keyword
       def initialize(schema, value)
         super
         raise TypeError unless value.kind_of?(Numeric) && value >= 0.0
@@ -9,7 +9,7 @@ module JSON
       def validate(data)
         raise TypeError unless data.kind_of?(String)
 
-        data.length <= value
+        data.length >= value
       end
     end
   end
